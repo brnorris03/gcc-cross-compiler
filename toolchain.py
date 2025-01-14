@@ -66,7 +66,7 @@ GDB_TARBALL = f'gdb-{GDB_VERSION}.tar.xz'
 INSTALL_DIR = f'{BASEDIR}/PKG'
 
 BINUTILS_CHECKSUM = 'a075178a9646551379bfb64040487715'
-GCC_CHECKSUM = '24195dca80ded5e0551b533f46a4481d'
+GCC_CHECKSUM = '2268420ba02dc01821960e274711bde0'
 GDB_CHECKSUM = '4452f575d09f94276cb0a1e95ecff856'
 
 GMP_MAIN = """
@@ -349,11 +349,11 @@ def build_gcc(*args):
                                f'--prefix={prefix}',
                                f'--program-prefix={target}-',
                                '--with-gnu-as', '--with-gnu-ld', '--disable-nls',
-                               '--disable-threads',
+                               '--enable-threads',
                                f'--enable-languages={languages}',
                                '--enable-libstdcxx-backtrace',
                                '--disable-multilib', '--disable-libgcj',
-                               '--without-headers', '--disable-shared', '--enable-lto',
+                               '--enable-shared', '--enable-lto',
                                '--disable-werror'])
     except subprocess.CalledProcessError:
         logger.error('Error: gcc headers checking failed')
