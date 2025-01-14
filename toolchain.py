@@ -55,7 +55,7 @@ import subprocess
 
 # Toolchain versions
 BINUTILS_VERSION = '2.42'
-GCC_VERSION = '14.1.0'
+GCC_VERSION = '14.2.0'
 GDB_VERSION = '14.2'
 
 BASEDIR = os.getcwd()
@@ -351,6 +351,7 @@ def build_gcc(*args):
                                '--with-gnu-as', '--with-gnu-ld', '--disable-nls',
                                '--disable-threads',
                                f'--enable-languages={languages}',
+                               '--enable-libstdcxx-backtrace',
                                '--disable-multilib', '--disable-libgcj',
                                '--without-headers', '--disable-shared', '--enable-lto',
                                '--disable-werror'])
